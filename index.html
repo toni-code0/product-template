@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ColorShop – Modern Store</title>
 <style>
-/* Reset */
+/* ===== Reset ===== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
 body{background:#f0f4f8;color:#333;scroll-behavior:smooth;}
 a{text-decoration:none;color:inherit;}
@@ -140,6 +140,42 @@ footer{padding:20px;text-align:center;background:#fff;box-shadow:0 -2px 10px rgb
   </div>
 </section>
 
+<!-- Product 2 Detail -->
+<section class="product-page" id="product2">
+  <div class="product-images">
+    <img src="https://picsum.photos/500/400?2" id="mainImg2">
+    <div style="display:flex;gap:10px;">
+      <img src="https://picsum.photos/500/400?2" class="thumb2">
+      <img src="https://picsum.photos/500/400?3" class="thumb2">
+      <img src="https://picsum.photos/500/400?4" class="thumb2">
+    </div>
+  </div>
+  <div class="product-main">
+    <h1>Landing Page</h1>
+    <div class="price">$29</div>
+    <p>Modern landing page template for startups, agencies, and portfolio websites. Easy to customize and responsive.</p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+</section>
+
+<!-- Product 3 Detail -->
+<section class="product-page" id="product3">
+  <div class="product-images">
+    <img src="https://picsum.photos/500/400?3" id="mainImg3">
+    <div style="display:flex;gap:10px;">
+      <img src="https://picsum.photos/500/400?3" class="thumb3">
+      <img src="https://picsum.photos/500/400?4" class="thumb3">
+      <img src="https://picsum.photos/500/400?5" class="thumb3">
+    </div>
+  </div>
+  <div class="product-main">
+    <h1>Dashboard Kit</h1>
+    <div class="price">$39</div>
+    <p>Comprehensive dashboard kit with charts, components, and layouts. Perfect for admin panels and web apps.</p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+</section>
+
 <!-- About -->
 <section class="page" id="about">
   <h1>About Me</h1>
@@ -161,10 +197,17 @@ footer{padding:20px;text-align:center;background:#fff;box-shadow:0 -2px 10px rgb
 </footer>
 
 <script>
-// Gallery Product 1
-const mainImg1 = document.getElementById("mainImg1");
+// ===== Gallery Product 1 =====
 document.querySelectorAll(".thumb1").forEach(thumb=>{
-  thumb.addEventListener("click",()=>{mainImg1.src=thumb.src;});
+  thumb.addEventListener("click",()=>document.getElementById("mainImg1").src=thumb.src);
+});
+// ===== Gallery Product 2 =====
+document.querySelectorAll(".thumb2").forEach(thumb=>{
+  thumb.addEventListener("click",()=>document.getElementById("mainImg2").src=thumb.src);
+});
+// ===== Gallery Product 3 =====
+document.querySelectorAll(".thumb3").forEach(thumb=>{
+  thumb.addEventListener("click",()=>document.getElementById("mainImg3").src=thumb.src);
 });
 
 // Products fade-in animation
