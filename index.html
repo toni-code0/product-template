@@ -2,53 +2,177 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>NovaStore</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+<title>ColorShop – Modern Store</title>
+<style>
+/* Reset */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+body{background:#f0f4f8;color:#333;scroll-behavior:smooth;}
+a{text-decoration:none;color:inherit;}
+
+/* ===== Header ===== */
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100;}
+.logo{font-size:28px;font-weight:bold;color:#ff6b6b;}
+nav a{margin-left:20px;font-weight:500;transition:0.3s;}
+nav a:hover{color:#ff6b6b;}
+
+/* ===== Hero ===== */
+.hero{background:linear-gradient(135deg,#ff6b6b,#ff9f43);color:white;text-align:center;padding:100px 20px;}
+.hero h1{font-size:48px;margin-bottom:20px;animation:fadeInDown 1s;}
+.hero p{font-size:20px;margin-bottom:30px;animation:fadeInUp 1s;}
+.hero button{padding:15px 30px;border:none;border-radius:10px;background:white;color:#ff6b6b;font-weight:bold;cursor:pointer;transition:0.3s;}
+.hero button:hover{transform:scale(1.05);}
+
+/* Animations */
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ===== Products Grid ===== */
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:40px;}
+.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.1);transition:0.3s;opacity:0;transform:translateY(20px);}
+.card:hover{transform:translateY(-5px);}
+.card img{width:100%;height:200px;object-fit:cover;transition:0.3s;}
+.card img:hover{transform:scale(1.05);}
+.card-content{padding:20px;text-align:center;}
+.card-content h3{margin-bottom:10px;}
+.card-content .price{color:#ff6b6b;font-weight:bold;margin-bottom:15px;}
+.card-content a{display:inline-block;padding:10px 25px;background:#ff6b6b;color:white;border-radius:10px;transition:0.3s;}
+.card-content a:hover{background:#ff4b4b;transform:scale(1.05);}
+
+/* ===== Product Detail ===== */
+.product-page{display:flex;flex-wrap:wrap;gap:40px;padding:40px;animation:fadeIn 0.8s;}
+.product-images{flex:1;min-width:300px;max-width:500px;display:flex;flex-direction:column;gap:15px;}
+.product-images img{width:100%;border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,0.1);cursor:pointer;transition:0.3s;}
+.product-images img:hover{transform:scale(1.03);}
+.product-main{flex:1;min-width:300px;max-width:500px;}
+.product-main h1{font-size:32px;margin-bottom:20px;}
+.product-main .price{font-size:28px;color:#ff6b6b;margin-bottom:20px;font-weight:bold;}
+.product-main p{line-height:1.6;margin-bottom:20px;}
+.buy-btn{padding:15px 30px;background:#ff6b6b;color:white;border:none;border-radius:10px;font-size:18px;font-weight:bold;cursor:pointer;transition:0.3s;}
+.buy-btn:hover{background:#ff4b4b;transform:scale(1.05);}
+
+/* ===== About & Contact ===== */
+section.page{padding:60px;max-width:900px;margin:auto;}
+section.page h1{font-size:36px;color:#ff6b6b;margin-bottom:20px;}
+section.page p{line-height:1.6;margin-bottom:20px;}
+
+/* Contact form */
+input, textarea{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ccc;}
+button.contact-btn{padding:12px 25px;background:#ff6b6b;color:white;border:none;border-radius:10px;font-weight:bold;cursor:pointer;transition:0.3s;}
+button.contact-btn:hover{background:#ff4b4b;transform:scale(1.05);}
+
+/* ===== Footer ===== */
+footer{padding:20px;text-align:center;background:#fff;box-shadow:0 -2px 10px rgba(0,0,0,0.05);margin-top:40px;}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+.hero h1{font-size:36px;}
+.hero p{font-size:16px;}
+.hero button{padding:12px 25px;}
+.product-page{flex-direction:column;}
+.product-images,.product-main{max-width:100%;}
+}
+</style>
 </head>
 <body>
 
+<!-- Header -->
 <header>
-  <div class="logo">Nova<span>Store</span></div>
+  <div class="logo">Color<span>Shop</span></div>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h1>Sell Smarter. Buy Better.</h1>
-  <p>Modern products for modern people</p>
+<!-- Hero -->
+<section class="hero" id="home">
+  <h1>Colorful Modern Products</h1>
+  <p>Sell Anything. Clean, Responsive & Professional.</p>
+  <button onclick="window.scrollTo({top:600,behavior:'smooth'})">Shop Now</button>
 </section>
 
+<!-- Products -->
 <section class="products">
   <div class="card">
     <img src="https://picsum.photos/400/300?1">
-    <h3>Product One</h3>
-    <p>$19</p>
-    <a href="product.html">View</a>
+    <div class="card-content">
+      <h3>UI Template</h3>
+      <div class="price">$19</div>
+      <a href="#product1">View</a>
+    </div>
   </div>
-
   <div class="card">
     <img src="https://picsum.photos/400/300?2">
-    <h3>Product Two</h3>
-    <p>$29</p>
-    <a href="product.html">View</a>
+    <div class="card-content">
+      <h3>Landing Page</h3>
+      <div class="price">$29</div>
+      <a href="#product2">View</a>
+    </div>
   </div>
-
   <div class="card">
     <img src="https://picsum.photos/400/300?3">
-    <h3>Product Three</h3>
-    <p>$39</p>
-    <a href="product.html">View</a>
+    <div class="card-content">
+      <h3>Dashboard Kit</h3>
+      <div class="price">$39</div>
+      <a href="#product3">View</a>
+    </div>
   </div>
 </section>
 
+<!-- Product 1 Detail -->
+<section class="product-page" id="product1">
+  <div class="product-images">
+    <img src="https://picsum.photos/500/400?1" id="mainImg1">
+    <div style="display:flex;gap:10px;">
+      <img src="https://picsum.photos/500/400?1" class="thumb1">
+      <img src="https://picsum.photos/500/400?2" class="thumb1">
+      <img src="https://picsum.photos/500/400?3" class="thumb1">
+    </div>
+  </div>
+  <div class="product-main">
+    <h1>UI Template</h1>
+    <div class="price">$19</div>
+    <p>High-quality modern UI template for websites and dashboards. Fully responsive, clean, and easy to integrate.</p>
+    <button class="buy-btn">Buy Now</button>
+  </div>
+</section>
+
+<!-- About -->
+<section class="page" id="about">
+  <h1>About Me</h1>
+  <p>I design and sell high-quality digital products for developers, designers, and entrepreneurs. My goal is to make your projects faster and more professional with ready-to-use templates.</p>
+</section>
+
+<!-- Contact -->
+<section class="page" id="contact">
+  <h1>Contact Me</h1>
+  <input placeholder="Name">
+  <input placeholder="Email">
+  <textarea placeholder="Message"></textarea>
+  <button class="contact-btn">Send Message</button>
+</section>
+
+<!-- Footer -->
 <footer>
-  © 2026 NovaStore
+  &copy; 2026 ColorShop. All rights reserved.
 </footer>
 
-<script src="script.js"></script>
+<script>
+// Gallery Product 1
+const mainImg1 = document.getElementById("mainImg1");
+document.querySelectorAll(".thumb1").forEach(thumb=>{
+  thumb.addEventListener("click",()=>{mainImg1.src=thumb.src;});
+});
+
+// Products fade-in animation
+document.querySelectorAll(".card").forEach((card,i)=>{
+  setTimeout(()=>{card.style.opacity=1;card.style.transform='translateY(0)';},i*200);
+});
+</script>
+
 </body>
 </html>
+
